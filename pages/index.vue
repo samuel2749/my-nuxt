@@ -2,22 +2,27 @@
     .container
         div
             logo
-                h1.title my-nuxt
-                .links
-                    a.button--green(href='https://nuxtjs.org/' target='_blank' rel='noopener noreferrer').
-                    
-                        Documentation
-                    
-                    a.button--grey(href='https://github.com/nuxt/nuxt.js' target='_blank' rel='noopener noreferrer').
-                    
-                        GitHub
+            h1.title my-nuxt 
+            p {{msg}}
+            .links
+                a.button--green(href='https://nuxtjs.org/' target='_blank' rel='noopener noreferrer').
+                
+                    Documentation
+                
+                a.button--grey(href='https://github.com/nuxt/nuxt.js' target='_blank' rel='noopener noreferrer').
+                
+                    GitHub {{axles}}
           
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Getter, Vue } from 'nuxt-property-decorator'
 
-export default Vue.extend({})
+@Component
+export default class Index extends Vue {
+    @Getter axles!: number
+    @Getter msg!: string
+}
 </script>
 
 <style>
